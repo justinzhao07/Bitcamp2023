@@ -1,6 +1,4 @@
-const api = {
-  key: "3ab0797a52ffa359b7cf3af8b949e5fd",
-}
+const apiKey = "3ab0797a52ffa359b7cf3af8b949e5fd"
 
 const searchbox = document.querySelector('.search-box');
 searchbox.addEventListener('keypress', setQuery);
@@ -10,7 +8,7 @@ searchbox.addEventListener('keypress', setQuery);
 }
 
 function getResults (query) {
-  fetch(`$https://api.openweathermap.org/data/2.5/weather?q=${query}&APPID=${api.key}`)
+  fetch(`$https://api.openweathermap.org/data/2.5/weather?q=${query}&APPID=${apiKey}`)
     .then(weather => {
       return weather.json();
     }).then(displayResults);
