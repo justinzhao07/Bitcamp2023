@@ -8,7 +8,7 @@ searchbox.addEventListener('keypress', setQuery);
 }
 
 function getResults (query) {
-  fetch(`$https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${apiKey}`)
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${apiKey}&units=imperial`)
     .then(weather => {
       return weather.json();
     }).then(displayResults);
