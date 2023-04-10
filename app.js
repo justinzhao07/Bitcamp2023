@@ -1,3 +1,8 @@
+const api = {
+  key: "3ab0797a52ffa359b7cf3af8b949e5fd",
+  base: "https://api.openweathermap.org/data/2.5/"
+}
+
 const searchbox = document.querySelector('.search-box');
 searchbox.addEventListener('keypress', setQuery);
   if (evt.keyCode == 13) {
@@ -6,7 +11,7 @@ searchbox.addEventListener('keypress', setQuery);
 }
 
 function getResults (query) {
-  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${query}&units=imperial&appid=3ab0797a52ffa359b7cf3af8b949e5fd`)
+  fetch(`${api.base}weather?q=${query}&units=imperial&appid=${api.base}`)
     .then(weather => {
       return weather.json();
     }).then(displayResults);
