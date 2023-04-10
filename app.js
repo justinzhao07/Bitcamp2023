@@ -1,5 +1,3 @@
-const apiKey = "3ab0797a52ffa359b7cf3af8b949e5fd"
-
 const searchbox = document.querySelector('.search-box');
 searchbox.addEventListener('keypress', setQuery);
   if (evt.keyCode == 13) {
@@ -8,7 +6,7 @@ searchbox.addEventListener('keypress', setQuery);
 }
 
 function getResults (query) {
-  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${apiKey}&units=imperial`)
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${query}&units=imperial&appid=3ab0797a52ffa359b7cf3af8b949e5fd`)
     .then(weather => {
       return weather.json();
     }).then(displayResults);
@@ -29,7 +27,7 @@ function displayResults (weather) {
   weather_el.innerText = weather.weather[0].main;
 
   let hilow = document.querySelector('.hi-low');
-  hilow.innerText = `${Math.round(weather.main.temp_min)}°F / ${Math.round(weather.main.temp_max)}°`;
+  hilow.innerText = `${Math.round(weather.main.temp_min)}°F / ${Math.round(weather.main.temp_max)}°F`;
 }
 
 function dateBuilder (d) {
