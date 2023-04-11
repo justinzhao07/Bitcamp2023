@@ -22,7 +22,15 @@ function getResults (query) {
 function displayResults (weather) {
   let city = document.querySelector('.location .city');
   city.innerText = `${weather.name}, ${weather.sys.country}`;
-
+  
+  if (`${weather.name}` === 'Drizzle' || `${weather.name}` === 'Rain' || `${weather.name}` === 'Thunderstorm') {
+    document.body.style.backgroundImage="url('https://i.gifer.com/73j6.gif')";
+  } else if (`${weather.name}` === 'Clear') {
+    document.body.style.backgroundImage="url('https://i.gifer.com/XFbw.gif')";
+  } else if (`${weather.name}` === 'Clouds') {
+    document.body.style.backgroundImage="url('https://i.gifer.com/Dg8F.gif')";
+  }
+  
   let now = new Date();
   let date = document.querySelector('.location .date');
   date.innerText = dateBuilder(now);
