@@ -13,7 +13,7 @@ function setQuery(evt) {
 }
 
 function getResults (query) {
-  fetch(`${api.base}weather?q=${query}&units=imperial&appid=${api.base}`)
+  fetch(`${api.base}weather?q=${query}&units=imperial&appid=${api.key}`)
     .then(weather => {
       return weather.json();
     }).then(displayResults);
